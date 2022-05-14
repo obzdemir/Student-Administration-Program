@@ -52,6 +52,7 @@ public class AddStudentGUI implements ActionListener {
         masterLabel.setBounds(10, 80, 110, 25);
         panel.add(masterLabel);
 
+        //TODO: master switch
         masterText = new JTextField(20);
         masterText.setBounds(120, 80 ,145 ,25);
         panel.add(masterText);
@@ -91,7 +92,7 @@ public class AddStudentGUI implements ActionListener {
 
         String firstName = firstNameText.getText();
         String lastName  = lastNameText.getText();
-        // masterText
+        //TODO: masterText
         if (!ageText.getText().matches("[1-9]([0-9]*)")) {
             message.setText("Error: Age must be a positive number.");
             return;

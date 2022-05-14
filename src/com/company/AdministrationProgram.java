@@ -44,7 +44,7 @@ public class AdministrationProgram {
     }
 
     public void enrollStudent(Course course, Student student){
-        //check valid
+        //TODO: check valid
         student.enroll(course);
         course.addStudent(student);
     }
