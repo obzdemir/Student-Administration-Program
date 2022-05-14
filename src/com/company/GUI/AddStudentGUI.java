@@ -12,8 +12,8 @@ public class AddStudentGUI implements ActionListener {
     private JTextField firstNameText;
     private JLabel lastNameLabel;
     private JTextField lastNameText;
-    private JLabel masterLabel;
-    private JTextField masterText;
+    private boolean master = false;
+    private JCheckBox checkBoxMaster;
     private JLabel ageLabel;
     private JTextField ageText;
     private JLabel semesterLabel;
@@ -48,14 +48,9 @@ public class AddStudentGUI implements ActionListener {
         lastNameText.setBounds(100, 50 ,165 ,25);
         panel.add(lastNameText);
 
-        masterLabel = new JLabel("Master/Bachelor");
-        masterLabel.setBounds(10, 80, 110, 25);
-        panel.add(masterLabel);
-
-        //TODO: master switch
-        masterText = new JTextField(20);
-        masterText.setBounds(120, 80 ,145 ,25);
-        panel.add(masterText);
+        checkBoxMaster = new JCheckBox("Master");
+        checkBoxMaster.setBounds(100,75,70,30);
+        panel.add(checkBoxMaster);
 
         ageLabel = new JLabel("Age");
         ageLabel.setBounds(10, 110, 80, 25);
@@ -89,10 +84,12 @@ public class AddStudentGUI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         String firstName = firstNameText.getText();
         String lastName  = lastNameText.getText();
-        //TODO: masterText
+
+        if (checkBoxMaster.isSelected()){
+            master = true;
+        }
         if (!ageText.getText().matches("[1-9]([0-9]*)")) {
             message.setText("Error: Age must be a positive number.");
             return;
@@ -105,11 +102,11 @@ public class AddStudentGUI implements ActionListener {
         int semester = Integer.parseInt(semesterText.getText());
 
         try {
-            program.addStudent(firstName, lastName, true, age, semester);
+            program.addStudent(firstName, lastName, master, age, semester);
             message.setText("added successfully!");
         } catch (Exception exc){
             message.setText("Error: " + exc.getMessage());
         }
-
     }
+
 }

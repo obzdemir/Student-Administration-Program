@@ -74,6 +74,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName + ", " + semester;
+        return firstName + " " + lastName + ", " + semester + ", " + isMaster;
     }
 }
