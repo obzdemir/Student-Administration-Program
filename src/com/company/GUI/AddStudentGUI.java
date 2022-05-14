@@ -26,6 +26,7 @@ public class AddStudentGUI implements ActionListener {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
         frame.setSize(350,270);
+        frame.setTitle("Add student");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.add(panel);
         frame.setLocationRelativeTo(null);

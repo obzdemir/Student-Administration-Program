@@ -15,9 +15,12 @@ public class GUI implements ActionListener {
     private AdministrationProgram program;
 
     private JButton studentButton;
-    private JButton courseListButton;
     private JButton enrollButton;
     private JButton addAStudentButton;
+
+    private JButton courseListButton;
+    //TODO: show enrolled students
+    private JButton showEnrolledButton;
 
     public GUI(AdministrationProgram program){
         this.program = program;
@@ -45,7 +48,7 @@ public class GUI implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton pressedButton = (JButton) e.getSource();
         if (pressedButton == studentButton){
-            new StudentListGUI(program);
+            new ListGUI(program.getStudents());
         }
         if (pressedButton == enrollButton){
             new EnrollSelectStudentGUI(program);
@@ -55,7 +58,7 @@ public class GUI implements ActionListener {
         }
 
         if (pressedButton == courseListButton){
-            new CourseListGUI(program);
+            new ListGUI(program.getCourses());
         }
     }
 
@@ -92,9 +95,12 @@ public class GUI implements ActionListener {
         coursePanel = new JPanel();
         courseListButton = new JButton("Show all courses");
         courseListButton.addActionListener(this);
+        showEnrolledButton = new JButton("Show enrolled students");
+        showEnrolledButton.addActionListener(this);
         coursePanel.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50));
         coursePanel.setLayout(new GridLayout(0,1));
         coursePanel.add(courseListButton);
+        coursePanel.add(showEnrolledButton);
     }
 }
 
