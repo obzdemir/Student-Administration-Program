@@ -42,8 +42,13 @@ public class AdministrationProgram {
         courses.add(course);
     }
 
-    public void enrollStudent(Course course, Student student){
-        //TODO: check valid
+    public void enrollStudent(Course course, Student student) throws Exception{
+        if (course.isMaster() != student.isMaster()){
+            throw new Exception("The selected course is not suitable for this student.");
+        }
+        if (student.isEnrolled(course)){
+            throw new Exception("The selected student is already enrolled in this course.");
+        }
         student.enroll(course);
         course.addStudent(student);
     }

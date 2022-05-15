@@ -72,6 +72,10 @@ public class Student {
         courses.add(course);
     }
 
+    public boolean isEnrolled(Course course){
+        return courses.contains(course);
+    }
+
     @Override
     public String toString() {
         return firstName + " " + lastName + ", " + semester + ", " + isMaster;

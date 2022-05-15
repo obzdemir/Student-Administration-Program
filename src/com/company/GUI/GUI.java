@@ -86,7 +86,6 @@ public class GUI implements ActionListener {
         studentPanel.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50));
         studentPanel.setLayout(new GridLayout(0,1));
         studentPanel.add(studentButton);
-        studentPanel.add(studentButton);
         studentPanel.add(enrollButton);
         studentPanel.add(addAStudentButton);
     }

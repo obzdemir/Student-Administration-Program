@@ -50,7 +50,11 @@ public class EnrollSelectCourseGUI implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JReferencingButton<Course> pressedButton = (JReferencingButton) e.getSource();
         Course course = pressedButton.getValue();
-        program.enrollStudent(course, student);
+        try {
+            program.enrollStudent(course, student);
+        } catch (Exception exc){
+            JOptionPane.showMessageDialog(frame, exc.getMessage());
+        }
         frame.setVisible(false);
     }
 }

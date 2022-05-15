@@ -12,7 +12,9 @@ public class ListGUI {
         for (int i = 0; i < data.length; i++) {
             data[i] = list.get(i).toString();
         }
-        f.add(new JList(data));
+        JList jlist = new JList(data);
+        jlist.setFixedCellHeight(30);
+        f.add(jlist);
         f.pack();
         f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         f.setLocationRelativeTo(null);
