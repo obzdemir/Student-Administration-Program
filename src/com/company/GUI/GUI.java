@@ -19,7 +19,6 @@ public class GUI implements ActionListener {
     private JButton addAStudentButton;
 
     private JButton courseListButton;
-    //TODO: show enrolled students
     private JButton showEnrolledButton;
 
     public GUI(AdministrationProgram program){
@@ -59,6 +58,9 @@ public class GUI implements ActionListener {
 
         if (pressedButton == courseListButton){
             new ListGUI(program.getCourses());
+        }
+        if (pressedButton == showEnrolledButton) {
+            new ShowSelectCourseGUI(program);
         }
     }
 
